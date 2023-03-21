@@ -1,9 +1,7 @@
-#include"main.h"
-
+#include "main.h"
 /**
- * _puts - function  prints a string, followed by a newline to stdout
- * @str: value of pointer
- * Return: Always 0 (Success)
+ * _puts - pusts to stdout
+ * @str: params
  */
 
 void _puts(char *str)
@@ -13,7 +11,7 @@ void _puts(char *str)
 	while (str[i] != '\0')
 	{
 		_putchar(str[i]);
-		 i++;
+		i++;
 	}
 
 	_putchar('\n');

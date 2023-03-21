@@ -1,36 +1,44 @@
 #include "main.h"
 
 /**
- * _strspn - function gets the length of a prefix substring.
- * @s: pointer to string.
- * @accept: substring prefix to look for.
- *Return: the number of bytes in the initial segment.
- */
+ * _strspn - Locates a character in a string
+ * @s: This is the main C string to be scanned.
+ * @accept: This is the string containing the list of characters to match in s
+ * Return: return count
+ **/
 
 unsigned int _strspn(char *s, char *accept)
+
 {
-	int i = 0, j;
-	int matches = 0;
+	int i, j;
+	int count = 0;
+	char *str1, *str2;
 
-	while (s[i] != '\0')
-/*iterate through string*/
+	str1 = s;
+	str2 = accept;
+
+	i = 0;
+	while (str1[i] != '\0') /*Declaring WHILE *s */
 	{
-		for (j = 0; accept[j] != '\0'; j++)/*iterate through target*/
-
+		j = 0;
+		while (str2[j] != '\0') /*Declaring WHILE *accept*/
 		{
-			if (s[i] == accept[j]) /*record & break at first match*/
+			if (str2[j] == str1[i]) /*Evaluate condition*/
 			{
-				matches++;
+				count++; /*count number*/
 				break;
 			}
 
-			if (accept[j + 1] == '\0' && s[i] != accept[j])
-
-				return (matches);/*return if idx doesn't match*/
+			j++;    /*add j+1*/
 		}
 
-		i++;
+		if (s[i] != accept[j]) /*If aren't equals*/
+		{
+			break;
+		}
+
+		i++; /*add x+1*/
 	}
 
-	return (matches); /* return num if all match till end */
+	return (count); /*return the value of count*/
 }
